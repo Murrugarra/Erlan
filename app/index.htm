@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>Erlan | DigitalPark</title>
+		
+		<link rel="shortcut icon" type="image/jpg" href="images/favicon.jpg" />
+		<meta charset="utf-8" />
+			<meta property="og:description" content="Esta aplicación fue desarrollada con el objetivo de hacer más entendible la algoritmia al momento de programar. Esta es la primera versión del lenguaje e interprete y espero le ayude tanto a niños, jovenes y adultos" />	
+		<script type="text/javascript" src="static/js/jquery-2.0.3.js"></script>
+		<script src="static/js/tutorialerikson.js"></script>	
+		<script src="static/js/eriksonlabs.js"></script>	
+		<script src="static/js/erikzon.js"></script>
+		<script>	
+			$(function(){
+				$("#interpreter").fadeIn(2500);
+				$("#consoler").fadeIn(2500);
+			})
+		</script>
+		<script>
+				$(function(){
+					$("#textarea").css("height", $(window).height())
+					$(window).resize(function(){
+						$("#textarea").css("height", $(window).height());
+					});
+				});
+				function ejecuta(){
+					var e1=new Erikson();
+					e1.fnInitErikson(textAce.getValue(), true);
+				}
+		</script>
+		<style>
+			#layout>div{width: 50%; float: left;}
+			html, body{padding: 0px; margin: 0px; overflow: hidden; max-height: 100%; height: 100%;}
+			html{background: #1F1F1F;}
+			input{border-radius: 5px;padding: 5px;}
+			#interpreter{display: none;}
+
+			#consoler{margin-left: 50%; overflow: auto; height: 100%; max-height: 100%; display: none;}
+			#console {overflow: auto;}
+		</style>
+		<style>
+				#banner{color: #ddd; font-size: .6em; 
+					font-family: "Segoe UI","Fuse-Segoe-UI",sans-serif;
+					 padding: .5em; background: #111;
+				border-bottom: 1px solid #000}
+				#banner b{color: #fFF;}
+				.btn, .btn1, .btn2, .btne{background: #333; border-radius: 4px; border: 1px solid #000; display: block; text-align: center; vertical-align: center; padding-bottom: .3em;}
+				a{text-decoration: none; color: inherit; cursor: pointer;}
+				.btn:HOVER{background: #555;}
+				.btn1{background: rgb(121,160,63); color: #fafafa;}
+				.btn1:HOVER{background: rgb(154, 194, 97);  color: #FFF;}
+				.btne{background: rgb(204, 98, 50); color: #FFF}
+				.btne:HOVER{background: rgb(211,116,75)}
+				.btn2{
+					font-size: .6em; 
+					font-family: "Segoe UI","Fuse-Segoe-UI",sans-serif;
+				}
+			</style>
+	<style>
+			.elements{display: none; border-radius: 5px;  padding: .1em	;   padding-left: 20px; 
+						font-family: "Segoe UI","Fuse-Segoe-UI",sans-serif;
+						background: #1F1F1F; color: #FFF;font-weight: bold;
+			font-size: .8em;}
+		.response{ color: #FFF;   }
+		.show{ color: rgb(154, 194, 97);  }
+		.pregunta{  color: #DDD; }
+		.alert{  color: red;   }
+		#light{position: absolute; bottom: 0; z-index: 999999999; left: 50%; margin-left: -5em; text-align: left; width: 20em; }
+		#About, #Errors, #LightDialog, #Tutorial {text-align: left; color: #CCC; font-size: .7em; padding: .7em; width: 42em; display: none;}
+		#About b, #Errors b, #LightDialog b, #Tutorial b{color: #FFF;}
+		#Res{color: #FFF; font-size: 2em; font-family: 'Segoe UI';
+		text-shadow: 1px 1px 2px #000}
+		#lighto{height: 24em;}
+		.error{text-align: left; padding: .2em .5em}
+		#eriksonmurrugarra{font-family: "Segoe UI","Fuse-Segoe-UI",sans-serif;; color: #FFF; font-size: 3em;  margin: 0 auto;  padding-left: 5em}
+		#Social{margin-left: 1em;}
+		#Tutorial{width: 250px;}
+		
+	</style>
+	</head>
+	<body>
+
+	<script type="text/javascript">
+
+	function showErikson(){
+		$("#eriksonmurrugarra").slideToggle(100);
+	}
+
+	function closeAbout(abc){
+		if(abc==0){
+			$("#About").slideUp(100);
+			$("#lighto").animate({height: '12em'});
+		}
+		else{
+			$("#About").slideDown(100);
+			$("#lighto").animate({height: '17em'});
+		}
+	}
+	function  closeTutorial(abc){
+		if(abc==0){
+			$("#Tutorial").slideUp(100); 
+			$("#lighto").animate({height: '12em'});
+		}
+		else{
+			$("#Tutorial").slideDown(100); 
+			$("#lighto").animate({height: '17em'});
+		}}
+		
+</script>
+<style>
+	#fbButton{
+		font-size: .5em;
+		margin: 0 auto;
+		width: 20em;
+		display: none;
+	}
+
+</style>
+<div id="eriksonmurrugarra">
+				<!--<h1 style="margin-bottom: .2em;">Laboratorios Erikson</h1>-->
+				<a id="fbButton" class="btn1" onclick="login()"><b>&nbsp; Ingresa con Facebook &nbsp;</b></a>
+
+			</div>
+		<div id="light">
+			<div class="btn2" id="Tutorial">
+				
+				<table width="100%">
+				<tr><td>Seleccione una opción:</td><td width="10%"><a class="btn1" onclick="closeTutorial(0)" style="font-size: .3em"><b>&nbsp; x &nbsp;</b></a></td>
+				</tr></table>
+
+				<a class="btn1" onclick="showTutorial(0)"> Bases del lenguaje </a>
+				<a class="btn1" onclick="showTutorial(1)"> Secuencia básica </a>
+				<a class="btn1" onclick="showTutorial(2)"> Lectura de datos </a>
+				<a class="btn1" onclick="showTutorial(3)"> Condiciones simples </a>
+				<a class="btn1" onclick="showTutorial(4)"> Juego Condiciones  </a>
+				<a class="btn1" onclick="showTutorial(5)"> Secuencias Repetitivas </a>
+			</div>
+
+			<style>
+				#License{padding-top: .3em; color: #FFF;}
+				#License a{font-weight: bold;}
+			</style>
+			<!-- <div class="btn2" id="License"> -->
+							<!-- <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.es"><img alt="Licencia Creative Commons" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Erikson Programming Language</span> por <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.laboratorioserikson.com" property="cc:attributionName" rel="cc:attributionURL">Erikson Murrugarra</a> se encuentra bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.es">Licencia Creative Commons Atribución-NoComercial-SinDerivadas 3.0 Unported</a>.<br />Basada en una obra en <a xmlns:dct="http://purl.org/dc/terms/" href="http://www.laboratorioserikson.com" rel="dct:source">http://www.laboratorioserikson.com</a>. -->
+			
+			<!-- </div> -->
+
+			<div class="btn2" id="About">
+				<div>
+					Made with Love By Erikson. DigitalPark 2017.
+				</div>
+
+			</div>
+			<div class="btn2" id="Errors">
+				<div>
+				Corrige la siguiente <b> Lista de Observaciones</b>
+
+				</div><br />
+				<div class="details" id="Errorer">					
+				</div>
+
+			</div>
+			<div id="Resultado">
+				<label id="Res"></label>
+			</div>
+			<div id="Social">
+					<!--
+					<a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>-->
+			</div>
+		<!--	<a onclick="$('#LightDialog').slideDown(500)" href="#"><img onmouseover="$('#License').slideDown(500)" onmouseout="$('#License').slideUp(500)" src="images/light.png"  id="lighto" /></a>-->
+		</div>
+		<div id="layout" class="lt">
+			<div id="interpreter" class="lt">
+	        <textarea id="textarea" style="width:100%; ">inicio
+    contador=1
+    repetir:    
+        alertar "@contador"
+        contador=contador+1
+    mientras esmenorigual(contador con 10)
+fin</textarea>
+		
+		<script>
+
+			function inject(callback) {
+			    var baseUrl = "static/src/";
+			    
+			    var load = window.__ace_loader__ = function(path, module, callback) {
+			        var head = document.getElementsByTagName('head')[0];
+			        var s = document.createElement('script');
+			    
+			        s.src = baseUrl + path;
+			        head.appendChild(s);
+			        
+			        s.onload = function() {
+			            window.__ace_shadowed__.require([module], callback);
+			        };
+			    };
+
+			    load('ace-bookmarklet.js', "ace/ext/textarea", function() {
+			        var ace = window.__ace_shadowed__;
+			        
+			        ace.options.mode = "javascript";
+			        var Event = ace.require("ace/lib/event");
+			        var areas = document.getElementsByTagName("textarea");
+			        for (var i = 0; i < areas.length; i++) {
+			            Event.addListener(areas[i], "click", function(e) {
+			                if (e.detail == 3) {
+			                    ace.transformTextarea(e.target, load);
+			                }
+			            });
+			        }
+			        callback && callback();
+			    });
+			}
+			var textAce;
+			inject(function () {
+			    // Transform the textarea on the page into an ace editor.
+			    var ace = window.__ace_shadowed__;
+			    var t = document.querySelector("textarea");
+			    textAce = ace.transformTextarea(t, window.__ace_loader__);
+			    setTimeout(function(){textAce.setFontSize("14px"); textAce.setTheme("ace/theme/idle_fingers");});
+			});
+
+			document.getElementById("buBuild").onclick = function() {
+			    var injectSrc = inject.toString().split("\n").join("");
+			    injectSrc = injectSrc.replace('baseUrl = "src/"', 'baseUrl="' + document.getElementById("srcURL").value + '"');
+			    var aceOptions = textAce.getOptions();
+			    var opt = [];
+			    for (var option in aceOptions) {
+			        opt.push(option + ":'" + aceOptions[option] + "'");
+			    }
+			    injectSrc = injectSrc.replace('ace.options.mode = "javascript"', 'ace.options = { ' + opt.join(",") + ' }');
+			    injectSrc = injectSrc.replace(/\s+/g, " ");
+
+			    var a = document.querySelector("a");
+			    a.href = "javascript:(" + injectSrc + ")()";
+			    a.innerHTML = "Ace Bookmarklet Link";
+			}
+		</script>
+		
+			</div>
+		
+		</div>
+		
+		<div id="consoler" class="lt">
+			<div id="banner">
+			
+			<table width="100%">
+			<tr><td width="10%"><a class="btn1"   onclick="ejecuta()"> RUN </a>
+			
+			</td>
+			<td width="10%"><a class="btn" onclick="closeTutorial(1)"> TUTORIAL </a>
+			
+			</td>
+			<!-- <td width="10%"><a class="btn"  onclick="closeAbout(1)"> ABOUT </a> -->
+			
+			</td>
+			<td width="10%">
+			
+			<!-- <a class="btn"  onclick="showErikson()"> SCREEN </a> -->
+			</td>
+			<td width="60%" style="text-align: right">
+			<a onclick="showErikson()">by <b><a href="https://digitalpark.io" target="_blank">DigitalPark</a></b>
+			</td></tr></table>
+			</div>
+			
+			<div id="console">
+			</div>
+		</div>		
+		</div>  		
+	</body>
+</html>
