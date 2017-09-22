@@ -6,10 +6,10 @@
 		<link rel="shortcut icon" type="image/jpg" href="images/favicon.jpg" />
 		<meta charset="utf-8" />
 			<meta property="og:description" content="Esta aplicación fue desarrollada con el objetivo de hacer más entendible la algoritmia al momento de programar. Esta es la primera versión del lenguaje e interprete y espero le ayude tanto a niños, jovenes y adultos" />	
-		<script type="text/javascript" src="static/js/jquery-2.0.3.js"></script>
-		<script src="static/js/tutorialerikson.js"></script>	
-		<script src="static/js/eriksonlabs.js"></script>	
-		<script src="static/js/erikzon.js"></script>
+		<script type="text/javascript" src="js/jquery-2.0.3.js"></script>
+		<script src="js/tutorialerikson.js"></script>	
+		<script src="js/eriksonlabs.js"></script>	
+		<script src="js/erikzon.js"></script>
 		<script>	
 			$(function(){
 				$("#interpreter").fadeIn(2500);
@@ -183,7 +183,7 @@ fin</textarea>
 		<script>
 
 			function inject(callback) {
-			    var baseUrl = "static/src/";
+			    var baseUrl = "src/";
 			    
 			    var load = window.__ace_loader__ = function(path, module, callback) {
 			        var head = document.getElementsByTagName('head')[0];
